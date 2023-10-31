@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Menu Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet"> -->
+    <!-- <title>Header menu</title> -->
+    <link rel="stylesheet" href="{% static 'css/headermenu.css' %} ">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+    <!-- js code for changing background color of navigation bar while scrolling -->
+    <!-- working now -->
+    <script>
+        jQuery(function ($) {
+            var $navbar = $('header');
+            $(window).scroll(function (event) {
+                var $current = $(this).scrollTop();
+                if ($current > 0) {
+                    $navbar.addClass('navbar-color');
+                }
+                else {
+                    $navbar.removeClass('navbar-color');
+                }
+            });
+        });
+    </script>
+    <!-- end of js code -->
+
+</head>
+
+<body>
+    <section class="nav">
+        <header>
+            <div class="navibar">
+                <div class="name">
+                    <img class="imagee" src="{% static '/images/spiceandherbs_logo.JPG' %} " alt="">
+                </div>
+                <ul>
+                    <li class="list"> <a class="line" href="{% url 'index1' %}"> Home </a> </li>
+                    <li class="list"> <a class="line" href="{% url 'index1' %}"> About </a> </li>
+                    <li class="list"> <a class="line" href="#"> Menu </a> </li>
+                    <li class="list"> <a class="line" href="{% url 'index1' %}"> Review </a> </li>
+                    <li class="list"> <a class="line" href="{% url 'index1' %}"> Contact </a> </li>
+                    <li class="list"> <a class="line" href="{% url 'index1' %}"> Blogs </a> </li>
+                    
+                    {% if request.session.customer_id %}
+                    <li class="list"> <a class="line" href="{% url 'wallet' %}"> Wallet </a> </li>
+                    <li class="list"> <a class="line" href="{% url 'order' %}"> Orders </a> </li>
+                    {% endif %}
+
+                </ul>
+                <div class="bttn">
+
+                    <!-- <div class="fa" style="font-size: 25px;">Orders  </div> -->
+                    <!-- <i class='fas fa-shopping-cart' style='font-size:36px; margin-top: 2px;'></i> -->
+                    
+                    <form action="/" method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="cart_icon" class="cartbutton"><i class="fa fa-shopping-cart" style="font-size:40px; margin-top: 20px;"></i>
+                        <span class="badge badge-info"> {{request.session.cart.keys|length}} </span></button>
+                        
+                        {% if request.session.customer_id %}
+                        <button type="submit" name="logout_signout" class="btttn"
+                        style="font-family: 'Roboto', 'Poppins', sans-serif; font-size: 20px;"> Logout/Signout</button>
+                        {% else %}
+                        <button type="submit" name="login_register" class="btttn"
+                        style="font-family: 'Roboto', 'Poppins', sans-serif; font-size: 20px;"> Login/Register</button>
+                        {% endif %}
+                    </form>
+                    
+
+                    <!-- <input type="button" name="login_register" class="btttn"
+                        style="font-family: 'Roboto', 'Poppins', sans-serif; font-size: 20px;" value="Login/Register"> -->
+
+
+                </div>
+            </div>
+        </header>
+    </section>
+
+
+</body>
+
+</html>

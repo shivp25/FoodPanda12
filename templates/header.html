@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cafe Spice and Herbs</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href=" {% static 'css/style1.css' %} ">
+
+
+    <!-- js code for changing background color of navigation bar while scrolling -->
+    <!-- working now -->
+    <script>
+        jQuery(function($){
+            var $navbar = $('header');
+            $(window).scroll(function(event){
+                var $current = $(this).scrollTop();
+                if( $current > 0 ){
+                    $navbar.addClass('navbar-color');
+                }
+                else{
+                    $navbar.removeClass('navbar-color');
+                }
+            });
+        });
+    </script>
+    <!-- end of js code -->
+
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+
+    <header>
+        <div class="nav stickytop">
+            <div class="navibar">
+                <div class="name">
+                    <img class="imagee" src="{% static '/images/spiceandherbs_logo.JPG' %}" alt="">
+                </div>
+                <ul>
+                    <li class="list"> <a class="line" href="#home"> Home </a> </li>
+                    <li class="list"> <a class="line" href="#about"> About </a> </li>
+                    <li class="list"> <a class="line" href="{% url 'menu' %}"> Menu </a> </li>
+                    <li class="list"> <a class="line" href="#review"> review </a> </li>
+                    <li class="list"> <a class="line" href="#contact"> Contact </a> </li>
+                    <li class="list"> <a class="line" href="#blogs"> Blogs </a> </li>
+                    
+                    {% if request.session.customer_id %}
+                    <li class="list"> <a class="line" href="{% url 'wallet' %}"> Wallet </a> </li>
+                    <li class="list"> <a class="line" href="{% url 'order' %}"> Orders </a> </li>
+                    {% endif %}
+
+                </ul>
+                <div class="bttn">
+
+                    <!-- <div class="fa" style="font-size: 25px;">Orders  </div> -->
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="cart_icon" class="cartbutton"> <i class="fa fa-shopping-cart" style="font-size:36px; margin-top: 2px;"></i> 
+                        <span class="badge badge-info"> {{request.session.cart.keys|length}} </span></button>
+
+                        {% if request.session.customer_id %}
+                        <button type="submit" name="logout_signout" class="btttn"
+                        style="font-family: 'Roboto', 'Poppins', sans-serif; font-size: 20px;"> Logout/Signout</button>
+                        {% else %}
+                        <button type="submit" name="login_register" class="btttn"
+                        style="font-family: 'Roboto', 'Poppins', sans-serif; font-size: 20px;"> Login/Register</button>
+                        {% endif %}
+                    </form>
+
+                    <!-- <input  type="submit" name="login_register" class="btttn" style="font-family: 'Roboto', 'Poppins', sans-serif; font-size: 20px;" value="Login/Register"> -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- header section ends -->

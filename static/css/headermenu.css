@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+:root{
+    --bordernav : .3rem solid darkorange;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    /* color: white; */
+    font-family: 'Roboto', 'Poppins', sans-serif;
+    box-sizing: border-box;
+    /* font-size: 62.5%; */
+}
+
+
+.nav {
+    height: 10vh;
+    /* width: 100vh; */
+    /* background: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)) , url('/img/italian1.jpg'); */
+    /* background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.3)); */
+    /* background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)); */
+    /* background-image: url('/img/background3.jpg'); */
+    background-position: center;
+    background-size: cover;
+    /* position: fixed; */
+}
+
+header {
+    position: fixed;
+    /* width: 100vh; */
+    /* top: 20px; */
+    /* background-color: black; */
+    z-index: 1000;
+    padding-bottom: 20px;
+    height: 16vh;
+    width: 100vw;
+    transition: 0.6s;
+
+}
+
+/* header .navibar{
+    background-color: rgba(0, 0, 0, 0.116);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    height: 12vh;
+    position: relative;
+    width: 100vw;
+    border-bottom: var(--border);
+} */
+
+header .navibar {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-left: 15%; */
+    /* padding-right: 15%; */
+    /* padding-bottom: 20px; */
+    /* padding-top: 20px; */
+    height: 12vh;
+    position: relative;
+    /* width: 100vw; */
+    /* border-bottom: var(--border); */
+    padding-left: 7.5%;
+    padding-right: 7.5%;
+    transition: 0.6s;
+}
+
+/* header .navbar .name{
+    color: white;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bold;
+    background-image: url('/img/spiceandherbs_logo.JPG');
+    size: 4rem;
+} */
+
+/* .navbar-color{
+    border-bottom: var(--bordernav);
+} */
+.navbar-color .navibar{
+    background-color:whitesmoke;
+    border-bottom: var(--bordernav);
+    transition: 0.6s;
+}
+
+.navbar-color .navibar .list a{
+    color: black;
+}
+.navbar-color .navibar .list a:hover{
+    color: red;
+    /* font-weight: bold; */
+    /* background-color: #010103; */
+}
+.navbar-color .navibar .bttn i{
+    color: black;
+}
+.navbar-color .navibar .bttn i:hover{
+    color: darkorange;
+}
+
+
+
+
+header .navibar .name .imagee {
+    width: 80px;
+}
+
+header .navibar .name span {
+    color: red;
+}
+
+header .navibar ul{
+    margin-top: 15px;
+    font-size: 62.5%;
+}
+
+header .navibar .list {
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+    font-size: 18px;
+}
+
+header .navibar .list a {
+    color: white;
+    padding-top: 5px;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 20px;
+    /* margin-left: 5px; */
+    /* padding: 10px; */
+    /* font-weight: bold; */
+}
+
+header .navibar .list a:hover {
+    /* transform: scale(1); */
+    /* background-color: rgb(29, 29, 29); */
+    color: orangered;
+    transition: 0.3s;
+
+    /* border-bottom: .1rem solid yellow;
+    padding-bottom: .5rem; */
+}
+
+header .navibar .bttn i {
+    margin-left: -28px;
+    color: white;
+    margin-top: 10%;
+}
+
+header .navibar .bttn i:hover {
+    color: greenyellow;
+}
+header .navibar .bttn .cartbutton{
+    background-color: transparent;
+    border: none;
+}
+
+header .navibar .bttn .btttn {
+    border: none;
+    padding: 8px 30px;
+    background-color: orange;
+    color: black;
+    text-transform: capitalize;
+    border-radius: 30px;
+    font-size: 15px;
+    /* font-weight: bold; */
+    transition: 0.5s all;
+    border: 2px orange solid;
+    margin-left: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 20px;
+}
+
+header .navibar .bttn .btttn:hover {
+    cursor: pointer;
+    /* background-color: yellow; */
+    background: transparent;
+    color: white;
+    /* border: 0.5px solid yellow; */
+    /* transform: scale(1.1); */
+}
+
+header .navibar .list .line::after {
+    display: block;
+    content: '';
+    position: relative;
+    background-color: orange;
+    height: 2px;
+    width: 0%;
+    bottom: -5px;
+    margin: auto;
+    transition: 0.3s all;
+}
+
+header .navibar .list .line:hover:after {
+    width: 100%;
+}
+
+
+/* end of new css */

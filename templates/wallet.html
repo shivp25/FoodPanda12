@@ -1,0 +1,39 @@
+{% extends "base_new.html" %}
+
+{% load static %}
+
+{% block newcontent %}
+
+<!-- custom css file link  -->
+<!-- <link rel="stylesheet" href=" {% static 'css/style1.css' %} "> -->
+
+<div class="container" style="m-3 p-3">
+
+    <h1>
+        <div style="margin-left:670px">
+        <br><br><br><br><br><br>
+        {% if request.method == "get" %}
+        Wallet: {{ new_updated_wallet }}
+        {% endif %}
+        {% if not walletbal %}
+        Wallet: {{ request.session.walletbal }}
+        {% elif walletbal %}
+        Wallet: {{ updated_balance }}
+        {% endif %}
+        </div>
+    </h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="bttn">
+            <div class="input-field">
+                <input type="text" required name="balance" value="{{walletbal}}" placeholder="Enter recharge amount" style="margin-left:670px; padding:10px; margin-top:10px">
+                <i class="uil uil-envelope icon"></i>
+            </div>
+            <button type="submit" name="add_balance" class="btttn"
+                style="font-family: 'Roboto', 'Poppins', sans-serif; font-size: 20px; margin-left:700px; margin-top:20px"> Add Balance </button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
